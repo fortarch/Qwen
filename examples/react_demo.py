@@ -70,7 +70,12 @@ Question: {query}"""
 # 输出：
 #   模型对用户最新一个问题的回答。
 #
+
+# prompt 你好， history是个历史会话的list， list_of_plugin_info 就是 tools列表
 def llm_with_plugin(prompt: str, history, list_of_plugin_info=()):
+
+    # 拼出一个list，前面是对话历史，后面加上这一次的 指令。history 起初是个[]
+    # [(),(),()]
     chat_history = [(x['user'], x['bot']) for x in history] + [(prompt, '')]
 
     # 需要让模型进行续写的初始文本
