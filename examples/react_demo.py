@@ -16,6 +16,7 @@ import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
 from transformers.generation import GenerationConfig
 
+# 模型初始化，装载入内存备用
 for _ in range(10):  # 网络不稳定，多试几次
     try:
         name = 'Qwen/Qwen-7B-Chat'
